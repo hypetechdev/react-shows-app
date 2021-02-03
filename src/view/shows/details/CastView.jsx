@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Loader from '../../components/loader/Loader'
 import ActorCard from './ActorCard'
 import ActorListItem from './ActorListItem'

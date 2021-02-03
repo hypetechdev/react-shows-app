@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import { Fragment, Component } from 'react'
 import CastList from './CastView'
 
 class CastSection extends Component {
     state = {
-        isGrid: true
+        isGrid: true,
     }
 
-    changeView = event => {
+    changeView = (event) => {
         event.preventDefault()
         const { isGrid } = this.state
         this.setState({ isGrid: !isGrid })
@@ -23,7 +23,7 @@ class CastSection extends Component {
     render() {
         const { casts } = this.props
         return (
-            <React.Fragment>
+            <Fragment>
                 <div className="col s12">
                     <hr />
                     <div className="row">
@@ -34,7 +34,7 @@ class CastSection extends Component {
                     </div>
                     <CastList casts={casts} isGrid={this.state.isGrid} />
                 </div>
-            </React.Fragment>
+            </Fragment>
         )
     }
 }

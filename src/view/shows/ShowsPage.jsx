@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import _ from 'lodash'
 
 import { showService } from '../../services/ShowService'
@@ -12,7 +12,7 @@ class ShowsPage extends Component {
         super(props)
         this.state = {
             shows: [],
-            filteredShows: []
+            filteredShows: [],
         }
     }
 
@@ -28,7 +28,7 @@ class ShowsPage extends Component {
     searchShows = (searchText, users) => {
         const allShows = users || this.state.shows
 
-        const filteredShows = allShows.filter(show => {
+        const filteredShows = allShows.filter((show) => {
             const { name } = show
             return _.toLower(name).includes(_.toLower(searchText))
         })

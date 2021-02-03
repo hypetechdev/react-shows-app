@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ShowCard = ({ show }) => (
     <div className="col s12 m4">
         <div className="card hoverable">

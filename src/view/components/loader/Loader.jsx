@@ -1,9 +1,9 @@
-import React from 'react'
+import { Fragment } from 'react'
 import './Loader.css'
 
 const Loader = ({ isLoading = false, children }) => {
     if (!isLoading) {
-        return children || <React.Fragment />
+        return children || <Fragment />
     }
 
     return (

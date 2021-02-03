@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 class SearchBar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            textInput: ''
+            textInput: '',
         }
     }
 
     static defaultProps = {
-        onSearch: f => f
+        onSearch: (f) => f,
     }
 
     onInputHandler = ({ target }) => {

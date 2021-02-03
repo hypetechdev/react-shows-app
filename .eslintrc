@@ -1,12 +1,7 @@
 {
-    "extends": [
-        "react-app"
-    ],
+    "extends": ["react-app"],
     "rules": {
-        "semi": [
-            "error",
-            "never"
-        ],
+        "semi": ["error", "never"],
         "quotes": [
             "error",
             "single",
@@ -14,9 +9,6 @@
                 "allowTemplateLiterals": true
             }
         ],
-        "indent": [
-            "error",
-            4
-        ]
+        "indent": ["error", 4]
     }
 }

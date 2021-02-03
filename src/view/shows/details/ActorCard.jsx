@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ActorCard = ({ actor }) => (
     <div className="col s12 m2">
         <div className="card ">

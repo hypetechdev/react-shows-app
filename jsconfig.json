@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-      "module": "commonjs",
-      "target": "esnext",
-      "jsx": "react-jsx"
+        "module": "commonjs",
+        "target": "esnext",
+        "jsx": "react-jsx"
     },
     "include": ["src/**/*"]
-  }
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import _ from 'lodash'
 
 import { showService } from '../../../services/ShowService'
@@ -12,7 +12,7 @@ class ShowDetailsPage extends Component {
         super(props)
 
         this.state = {
-            show: null
+            show: null,
         }
     }
 

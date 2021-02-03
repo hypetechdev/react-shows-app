@@ -7,10 +7,10 @@ class ShowService {
     fetchPopularShows() {
         const requestPath = `/shows`
 
-        const adaptShows = shows => {
+        const adaptShows = (shows) => {
             return shows
-                .filter(show => show.rating.average > 8)
-                .map(show => new Show(show))
+                .filter((show) => show.rating.average > 8)
+                .map((show) => new Show(show))
                 .splice(0, 50)
         }
 
@@ -20,7 +20,7 @@ class ShowService {
     fetchSingleShow(id) {
         const requestPath = `/shows/${id}?embed[]=seasons&embed[]=cast`
 
-        return API.get(requestPath).then(showData => {
+        return API.get(requestPath).then((showData) => {
             const actorsList = showData._embedded.cast.map(({ person, character }) => {
                 return new Actor(person, character)
             })
