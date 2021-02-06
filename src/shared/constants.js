@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://api.tvmaze.com'
+export const BASE_URL = process.env.REACT_APP_API_ENDPOINT

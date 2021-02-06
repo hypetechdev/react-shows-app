@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 const ShowCard = ({ show }) => (
     <div className="col s12 m4">
         <div className="card hoverable">
@@ -12,4 +14,4 @@ const ShowCard = ({ show }) => (
     </div>
 )
 
-export default ShowCard
+export default memo(ShowCard)

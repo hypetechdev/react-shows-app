@@ -1,4 +1,8 @@
-import Loader from '../../components/loader/Loader'
+import Actor from 'models/Actor'
+import PropTypes from 'prop-types'
+import { memo } from 'react'
+
+import Loader from '../../../components/loader/Loader'
 import ActorCard from './ActorCard'
 import ActorListItem from './ActorListItem'
 
@@ -18,7 +22,7 @@ export const CastList = ({ casts }) => {
     )
 }
 
-export const CastView = ({ casts, isGrid }) => {
+export const CastView = ({ casts = [], isGrid }) => {
     if (!casts) {
         return <Loader />
     }
@@ -26,4 +30,9 @@ export const CastView = ({ casts, isGrid }) => {
     return isGrid ? <CastGrid casts={casts} /> : <CastList casts={casts} />
 }
 
-export default CastView
+CastView.propTypes = {
+    casts: PropTypes.objectOf(PropTypes.instanceOf(Actor)).isRequired,
+    isGrid: PropTypes.bool.isRequired,
+}
+
+export default memo(CastView)

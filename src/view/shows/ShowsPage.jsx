@@ -4,8 +4,8 @@ import _ from 'lodash'
 import { showService } from '../../services/ShowService'
 
 import ShowsGrid from './ShowsGrid'
-import Loader from '../components/loader/Loader'
-import SearchBar from '../components/SearchBar'
+import Loader from '../../components/loader/Loader'
+import SearchBar from '../../components/SearchBar'
 
 class ShowsPage extends Component {
     constructor(props) {

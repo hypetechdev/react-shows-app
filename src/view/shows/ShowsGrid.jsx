@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 
 import ShowCard from './ShowCard'
@@ -14,4 +15,4 @@ const ShowsGrid = ({ shows }) => {
     return <div className="row">{gridCards}</div>
 }
 
-export default ShowsGrid
+export default memo(ShowsGrid)
