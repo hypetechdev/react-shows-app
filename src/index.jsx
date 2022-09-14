@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import 'materialize-css/dist/css/materialize.css'
 
-import App from './view/app/App'
+import App from './app/app/App'
 
 ReactDOM.render(
     <BrowserRouter>
