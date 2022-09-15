@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { StrictMode, useCallback, useState } from 'react'
 import { useMount } from 'react-use'
 import _ from 'lodash'
 
@@ -37,7 +37,9 @@ const ShowsPageNew = () => {
 
     return (
         <Loader isLoading={_.isEmpty(shows)}>
-            <SearchBar onSearch={searchShowsFn} />
+            <StrictMode>
+                <SearchBar onSearch={searchShowsFn} />
+            </StrictMode>
             <ShowsGrid shows={filteredShows} />
         </Loader>
     )

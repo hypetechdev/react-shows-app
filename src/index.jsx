@@ -1,14 +1,19 @@
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import './index.css'
 import 'materialize-css/dist/css/materialize.css'
 
 import App from './app/app/App'
+import { StrictMode } from 'react'
 
-ReactDOM.render(
+const container = document.getElementById('root')
+const root = createRoot(container)
+
+root.render(
     <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById('root')
+        <StrictMode>
+            <App />
+        </StrictMode>
+    </BrowserRouter>
 )
