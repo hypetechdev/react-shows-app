@@ -1,28 +1,29 @@
 import { StrictMode, useCallback, useState } from 'react'
-import { useMount } from 'react-use'
-import _ from 'lodash'
 
-import { showService } from 'services/ShowService'
+import _ from 'lodash'
 
 import Loader from 'components/loader/Loader'
 import SearchBar from 'components/SearchBar'
 
 import ShowsGrid from './ShowsGrid'
+import { useShows } from 'app/hooks/useShows'
+import { useEffectOnce, useMount, usePromise, useUnmount, useUpdateEffect } from 'react-use'
 
 const ShowsPageNew = () => {
-    const [shows, setShows] = useState([])
+    const { shows, loading, error } = useShows()
+
+    // const [shows, setShows] = useState([])
     const [filteredShows, setFilteredShows] = useState([])
 
-    useMount(async () => {
-        try {
-            const shows = await showService.fetchPopularShows()
+    useMount(async () => {})
 
-            setFilteredShows(shows)
-            setShows(shows)
-        } catch (error) {
-            throw new Error(error.message)
-        }
-    })
+    useEffectOnce(() => {})
+
+    useUpdateEffect(() => {
+        setFilteredShows(shows)
+    }, [shows])
+
+    useUnmount(() => {})
 
     const handleSearchShows = (searchText, users) => {
         const allShows = users || shows
@@ -34,6 +35,10 @@ const ShowsPageNew = () => {
     }
 
     const searchShowsFn = useCallback(handleSearchShows, [shows])
+
+    if (error) {
+        return <h1>Error</h1>
+    }
 
     return (
         <Loader isLoading={_.isEmpty(shows)}>

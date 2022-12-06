@@ -6,7 +6,7 @@ import './App.css'
 
 const App = () => (
     <>
-        <Header title="BIT Shows" />
+        <Header title="Hype Shows" />
         <Main />
         <Footer />
     </>

@@ -1,9 +1,10 @@
 import { Component } from 'react'
 import _ from 'lodash'
 
-import { showService } from '../../../services/ShowService'
+import { showService } from 'services/ShowService'
 
-import Loader from '../../../components/loader/Loader'
+import Loader from 'components/loader/Loader'
+
 import ShowDetailsSection from './ShowDetailsSection'
 import CastSection from './CastSection'
 
