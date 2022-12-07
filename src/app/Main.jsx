@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 const ShowsPage = lazy(() => import('./shows/ShowsPageNew'))
 const ShowDetailsPage = lazy(() => import('./shows/details/ShowDetailsPage'))
@@ -7,13 +7,13 @@ const AboutPage = lazy(() => import('./about/AboutPage'))
 
 const Main = () => (
     <main className="container">
-        <Switch>
-            <Suspense fallback={<h1>Loading...</h1>}>
-                <Route exact path="/" component={ShowsPage} />
-                <Route path="/show/:id" component={ShowDetailsPage} />
-                <Route path="/about" component={AboutPage} />
-            </Suspense>
-        </Switch>
+        <Suspense fallback={<h1>Loading fallback...</h1>}>
+            <Routes>
+                <Route path="/" element={<ShowsPage />} />
+                <Route path="about" element={<AboutPage />} />
+                <Route path="shows/:id" element={<ShowDetailsPage />} />
+            </Routes>
+        </Suspense>
     </main>
 )
 

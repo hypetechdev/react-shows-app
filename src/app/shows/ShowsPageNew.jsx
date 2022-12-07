@@ -1,23 +1,22 @@
 import { StrictMode, useCallback, useState } from 'react'
-
+import { useRendersCount, useUnmount, useUpdateEffect } from 'react-use'
 import _ from 'lodash'
 
+import { useShows } from 'app/hooks/useShows'
 import Loader from 'components/loader/Loader'
 import SearchBar from 'components/SearchBar'
 
 import ShowsGrid from './ShowsGrid'
-import { useShows } from 'app/hooks/useShows'
-import { useEffectOnce, useMount, usePromise, useUnmount, useUpdateEffect } from 'react-use'
 
 const ShowsPageNew = () => {
-    const { shows, loading, error } = useShows()
+    const { shows, error } = useShows()
 
-    // const [shows, setShows] = useState([])
     const [filteredShows, setFilteredShows] = useState([])
 
-    useMount(async () => {})
+    // useMount(async () => {})
 
-    useEffectOnce(() => {})
+    // useEffectOnce(() => {})
+    useRendersCount()
 
     useUpdateEffect(() => {
         setFilteredShows(shows)
@@ -45,7 +44,7 @@ const ShowsPageNew = () => {
             <StrictMode>
                 <SearchBar onSearch={searchShowsFn} />
             </StrictMode>
-            <ShowsGrid shows={filteredShows} />
+            {filteredShows && <ShowsGrid shows={filteredShows} />}
         </Loader>
     )
 }

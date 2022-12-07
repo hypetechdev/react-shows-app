@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import './Loader.css'
 
-const Loader = ({ isLoading = false, children }) => {
+const Loader = ({ isLoading = false, children = undefined }) => {
     if (!isLoading) {
         return children || <Fragment />
     }

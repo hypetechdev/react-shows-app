@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { useState } from 'react'
 import _ from 'lodash'
 
 import { showService } from 'services/ShowService'
@@ -7,39 +7,29 @@ import Loader from 'components/loader/Loader'
 
 import ShowDetailsSection from './ShowDetailsSection'
 import CastSection from './CastSection'
+import { useMount } from 'react-use'
+import { useParams } from 'react-router-dom'
 
-class ShowDetailsPage extends Component {
-    constructor(props) {
-        super(props)
+const ShowDetailsPage = () => {
+    const { id } = useParams()
+    const [show, setShow] = useState(null)
 
-        this.state = {
-            show: null,
-        }
-    }
-
-    async componentDidMount() {
-        const { id } = this.props.match.params
+    useMount(async () => {
         const show = await showService.fetchSingleShow(id)
 
-        this.setState({ show })
+        setShow(show)
+    })
+
+    if (_.isEmpty(show)) {
+        return <Loader isLoading />
     }
 
-    render() {
-        const { show } = this.state
-
-        if (_.isEmpty(show)) {
-            return <Loader isLoading />
-        }
-
-        const { casts } = show
-
-        return (
-            <div className="row">
-                <ShowDetailsSection show={show} />
-                <CastSection casts={casts} />
-            </div>
-        )
-    }
+    return (
+        <div className="row">
+            <ShowDetailsSection show={show} />
+            <CastSection casts={show.casts} />
+        </div>
+    )
 }
 
 export default ShowDetailsPage

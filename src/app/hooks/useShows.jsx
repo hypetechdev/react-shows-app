@@ -1,11 +1,13 @@
-import { useMemo, useState } from 'react'
-import { useEffectOnce, useMount } from 'react-use'
+import { useState } from 'react'
+import { useMount, useRendersCount } from 'react-use'
 import { showService } from 'services/ShowService'
 
 export const useShows = () => {
     const [shows, setShows] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+
+    useRendersCount()
 
     useMount(async () => {
         try {
@@ -18,12 +20,9 @@ export const useShows = () => {
         }
     })
 
-    return useMemo(
-        () => ({
-            shows,
-            loading,
-            error,
-        }),
-        [shows]
-    )
+    return {
+        shows,
+        loading,
+        error,
+    }
 }

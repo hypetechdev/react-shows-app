@@ -10,10 +10,12 @@ import { StrictMode } from 'react'
 const container = document.getElementById('root')
 const root = createRoot(container)
 
-root.render(
+const appNode = (
     <BrowserRouter>
         <StrictMode>
             <App />
         </StrictMode>
     </BrowserRouter>
 )
+
+root.render(appNode)

@@ -14,7 +14,6 @@ class ApiService {
 
     constructor() {
         this.#http.interceptors.request.use((config) => {
-            console.log('config', config)
             return config
         })
     }
